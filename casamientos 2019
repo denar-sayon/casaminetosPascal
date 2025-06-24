@@ -1,0 +1,33 @@
+program casamiento;
+type 
+  fecha=record
+   dia:integer;
+   mes:string;
+   anio:integer;
+   end;
+procedure leerfecha(var fechas:fecha);
+begin
+  writeln('indique el dia del casamiento ejemplo: el primer dia del mes seria 1');
+  readln(fechas.dia);
+  writeln('indique el mes del casamiento');
+  readln(fechas.mes);
+  writeln('indique el anio del casamiento');
+  readln(fechas.anio);
+  end;
+ var 
+  fechass:fecha;
+  cantC,cantV:integer;
+begin
+  cantV:=0;
+  cantC:=0;
+  leerfecha(fechass);
+  while (fechass.anio=2019 )do begin 
+   if (fechass.mes='enero')or (fechass.mes='febrero') or (fechass.mes='marzo') then 
+     cantV:=cantV+1;
+   if (0 < fechass.dia) and (fechass.dia< 11) then
+     cantC:=cantC+1;
+   leerfecha(fechass);
+  end;
+  writeln('la cantidad de casamientos en verano del 2019 fue: ',cantV);
+  writeln('la cantidad de casamiento en los primeros 10 dias de cada mes fue de: ',cantC);
+ end.
